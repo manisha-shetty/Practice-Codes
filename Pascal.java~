@@ -1,0 +1,17 @@
+class Pascal{
+public static void main(String args[]){
+int n,i,j,a[];
+Scanner s=new Scanner(System.in);
+n= s.nextInt();
+a=new int[n];
+for (i=1;i<=n;i++){
+a[0]=1; a[i-1]=1;
+for (j=0;j<i;j++){
+System.out.print(a[j]+" ");
+a[j]=(j==0)?a[j]:a[j]+a[j-1];
+}
+a[j]=1;
+}
+
+}
+}

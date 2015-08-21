@@ -1,0 +1,113 @@
+/*Amazon
+You are given two integers low and high such that low<high. You are also given a
+
+Binary Search Tree (BST). Write a program to remove the nodes of the BST which have 
+
+their data (integer) less than low or greater than high finally giving a BST.
+
+e.g.:  low=3 , high=7*/
+
+import java.util.*;
+class Node{
+int info;
+Node right;
+Node left;
+Node parent;
+}
+
+
+public class BinarySearchTree {
+
+static Node root=null;
+
+public static Node insert(Node root,int in){
+if(root==null){
+Node n = new Node();
+n.info=in;
+n.right=null;
+n.left=null;
+n.parent=null;
+root=n;
+} else if(in<=root.info){
+Node tmp= insert(root.left,in);
+root.left=tmp;
+tmp.parent=root;
+
+} else if (in > root.info){
+Node tmp=insert(root.right,in);
+root.right=tmp;
+tmp.parent=root;
+}
+return root;
+}
+
+public static void deleteLessThan(Node n,int low){
+if(n==null){return;}
+if(n.info<low){
+if(n.equals(root)){
+System.out.println("first"+n.right.info);
+root=n.right;
+root.parent=null;
+ deleteLessThan(root,low);
+}else{ System.out.println("secnd");
+n.parent.left=n.right;
+if(n.right!=null){n.right.parent=n.parent;}
+ deleteLessThan(n.right,low);
+}
+} else if(n.info>=low){
+System.out.println("thrd");
+ deleteLessThan(n.left,low);
+}
+}
+
+public static void deleteMoreThan(Node n,int high){
+if(n==null){return;}
+if(n.info>high){
+if(n.equals(root)){
+System.out.println("first"+n.right.info);
+root=n.left;
+root.parent=null;
+ deleteMoreThan(root,high);
+}else{ System.out.println("secnd");
+n.parent.right=n.left;
+if(n.left!=null){n.left.parent=n.parent;}
+ deleteMoreThan(n.right,high);
+}
+} else if(n.info<=high){
+System.out.println("thrd");
+ deleteMoreThan(n.right,high);
+}
+}
+
+
+
+public static void print(Node node){
+if(node.left!=null){
+print(node.left);
+}
+System.out.println(node.info);
+if(node.right!=null){
+print(node.right);
+}
+}
+
+public static void main(String args[]){
+int low=23,high=44;
+
+root=insert(root,20);
+root=insert(root,54);
+root=insert(root,44);
+root=insert(root,23);
+root=insert(root,17);
+root=insert(root,79);
+
+print( root);
+
+deleteLessThan(root,low);
+deleteMoreThan(root,high);
+
+print( root);
+
+
+}
+}

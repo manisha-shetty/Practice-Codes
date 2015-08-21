@@ -1,0 +1,22 @@
+/*Given an integer convert all 0s to 5s*/
+
+class Convert0to5{
+
+public static void main(String args[]){
+
+int a=300560;
+int b=0;
+int i=1;
+while(a!=0){
+if(a%10==0)
+b=5*i+b;
+else
+b=(a%10)*i+b;
+i=i*10;
+a=a/10;
+}
+
+System.out.println(b);
+}
+
+}

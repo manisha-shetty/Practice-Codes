@@ -1,0 +1,21 @@
+/* Ladder of n steps is given.Find the number number of ways to reach the end point.I can take either 1 step or two steps at a time.*/
+
+class PossWaysUpLadder{
+
+public static void main(Sring args[]){
+
+int n=4;
+
+int count=0;
+
+for (int i=0;i<=n;i++){
+for(int j=0;j<=n/2;j++){
+if(1*i+2*j==n)
+count++;
+
+}
+}
+
+System.out.println(count);
+}
+}

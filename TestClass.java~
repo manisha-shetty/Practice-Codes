@@ -1,0 +1,13 @@
+class TestClass{
+
+public static void main(String[] args){
+
+StringBuilder str=new StringBuilder("manisha");
+str.deleteCharAt(3);
+System.out.println(str.indexOf(""+'a'));
+
+
+
+
+}
+}

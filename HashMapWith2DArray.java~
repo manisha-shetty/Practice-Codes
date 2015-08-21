@@ -1,0 +1,6 @@
+class HashMapWith2DArray{
+
+String key[]=new int[10];
+String val[]=new int[10];
+
+}
